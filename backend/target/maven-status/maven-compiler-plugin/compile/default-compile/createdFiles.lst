@@ -1,0 +1,12 @@
+com/txi/db/repository/AccountRepository.class
+com/txi/db/repository/CategoryRepository.class
+com/txi/service/ingest/CsvIngestionService$1.class
+com/txi/api/UploadController.class
+com/txi/TransactionInsightsApplication.class
+com/txi/db/repository/TransactionRepository.class
+com/txi/db/entity/Account.class
+com/txi/config/DatabaseInitializer.class
+com/txi/db/entity/Category.class
+com/txi/service/ingest/CsvIngestionService.class
+com/txi/db/entity/TransactionEntity.class
+com/txi/service/ingest/CsvIngestionResult.class

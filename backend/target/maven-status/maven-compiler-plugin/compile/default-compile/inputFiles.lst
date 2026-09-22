@@ -1,0 +1,11 @@
+/Users/annabellortiz/Desktop/Projects/Transaction-Insights-Project/backend/src/main/java/com/txi/db/entity/TransactionEntity.java
+/Users/annabellortiz/Desktop/Projects/Transaction-Insights-Project/backend/src/main/java/com/txi/db/entity/Account.java
+/Users/annabellortiz/Desktop/Projects/Transaction-Insights-Project/backend/src/main/java/com/txi/service/ingest/CsvIngestionService.java
+/Users/annabellortiz/Desktop/Projects/Transaction-Insights-Project/backend/src/main/java/com/txi/service/ingest/CsvIngestionResult.java
+/Users/annabellortiz/Desktop/Projects/Transaction-Insights-Project/backend/src/main/java/com/txi/api/UploadController.java
+/Users/annabellortiz/Desktop/Projects/Transaction-Insights-Project/backend/src/main/java/com/txi/TransactionInsightsApplication.java
+/Users/annabellortiz/Desktop/Projects/Transaction-Insights-Project/backend/src/main/java/com/txi/db/entity/Category.java
+/Users/annabellortiz/Desktop/Projects/Transaction-Insights-Project/backend/src/main/java/com/txi/config/DatabaseInitializer.java
+/Users/annabellortiz/Desktop/Projects/Transaction-Insights-Project/backend/src/main/java/com/txi/db/repository/AccountRepository.java
+/Users/annabellortiz/Desktop/Projects/Transaction-Insights-Project/backend/src/main/java/com/txi/db/repository/TransactionRepository.java
+/Users/annabellortiz/Desktop/Projects/Transaction-Insights-Project/backend/src/main/java/com/txi/db/repository/CategoryRepository.java
