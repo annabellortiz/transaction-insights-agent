@@ -1,1 +1,6 @@
 com/txi/service/ingest/CsvIngestionServiceTest.class
+com/txi/service/tools/TransactionInsightsToolServiceTest.class
+com/txi/service/analytics/TransactionAnalyticsServiceTest.class
+com/txi/api/AgentControllerTest.class
+com/txi/service/agent/AnthropicServiceTest.class
+com/txi/db/entity/TransactionEntityMappingTest.class

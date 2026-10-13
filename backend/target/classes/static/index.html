@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Transaction Insights Agent</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">Portfolio project</p>
+          <h1>Transaction Insights Agent</h1>
+        </div>
+        <div class="date-pill" id="dateRangeLabel">April 2026</div>
+      </header>
+
+      <main class="layout">
+        <section class="panel analytics-panel">
+          <div class="panel-header">
+            <h2>Spending overview</h2>
+            <div class="range-picker">
+              <label>
+                Start
+                <input id="startDate" type="date" value="2026-04-01" />
+              </label>
+              <label>
+                End
+                <input id="endDate" type="date" value="2026-04-30" />
+              </label>
+              <button id="refreshBtn" class="primary-btn">Refresh</button>
+            </div>
+          </div>
+
+          <div class="summary-row">
+            <div class="summary-card accent">
+              <span>Total spend</span>
+              <strong id="totalSpend">$0.00</strong>
+            </div>
+            <div class="summary-card">
+              <span>Top category</span>
+              <strong id="topCategory">—</strong>
+            </div>
+            <div class="summary-card">
+              <span>Transactions</span>
+              <strong id="transactionCount">0</strong>
+            </div>
+          </div>
+
+          <div id="categoryGrid" class="category-grid"></div>
+        </section>
+
+        <aside class="panel agent-panel">
+          <div class="panel-header">
+            <h2>Ask the agent</h2>
+          </div>
+
+          <div class="quick-queries">
+            <button class="chip" data-query="What was my total spend by category for April 2026?">Total spend by category</button>
+            <button class="chip" data-query="What was my largest transaction in April 2026?">Largest transaction</button>
+            <button class="chip" data-query="How did my spending trend in April 2026?">Spend trend</button>
+          </div>
+
+          <div class="chat-box">
+            <label for="agentInput">Ask about your transactions</label>
+            <textarea id="agentInput" rows="4" placeholder="What was my total spend by category for April 2026?"></textarea>
+            <button id="askBtn" class="primary-btn full">Analyze</button>
+          </div>
+
+          <div id="agentResponse" class="response-box">
+            <p class="empty-state">The agent response will appear here.</p>
+          </div>
+        </aside>
+      </main>
+    </div>
+
+    <script src="/app.js"></script>
+  </body>
+</html>

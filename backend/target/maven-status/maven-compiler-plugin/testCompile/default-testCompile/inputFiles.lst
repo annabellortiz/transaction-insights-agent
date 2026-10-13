@@ -1,1 +1,6 @@
+/Users/annabellortiz/Desktop/Projects/Transaction-Insights-Project/backend/src/test/java/com/txi/service/tools/TransactionInsightsToolServiceTest.java
+/Users/annabellortiz/Desktop/Projects/Transaction-Insights-Project/backend/src/test/java/com/txi/service/agent/AnthropicServiceTest.java
+/Users/annabellortiz/Desktop/Projects/Transaction-Insights-Project/backend/src/test/java/com/txi/service/analytics/TransactionAnalyticsServiceTest.java
 /Users/annabellortiz/Desktop/Projects/Transaction-Insights-Project/backend/src/test/java/com/txi/service/ingest/CsvIngestionServiceTest.java
+/Users/annabellortiz/Desktop/Projects/Transaction-Insights-Project/backend/src/test/java/com/txi/db/entity/TransactionEntityMappingTest.java
+/Users/annabellortiz/Desktop/Projects/Transaction-Insights-Project/backend/src/test/java/com/txi/api/AgentControllerTest.java

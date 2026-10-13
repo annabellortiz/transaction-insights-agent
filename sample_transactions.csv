@@ -1,0 +1,37 @@
+date,description,category,amount,account
+2026-04-03,Trader Joe's,Groceries,54.32,Checking
+2026-04-05,Shell Gas Station,Transportation,42.10,Checking
+2026-04-07,Netflix,Subscriptions,15.49,Credit Card
+2026-04-09,Chipotle,Dining,13.87,Credit Card
+2026-04-12,Whole Foods,Groceries,89.15,Checking
+2026-04-15,Uber,Transportation,22.60,Credit Card
+2026-04-18,Spotify,Subscriptions,10.99,Credit Card
+2026-04-20,Olive Garden,Dining,48.20,Credit Card
+2026-04-22,CVS Pharmacy,Health,31.45,Checking
+2026-04-25,Amazon,Shopping,76.99,Credit Card
+2026-04-28,Trader Joe's,Groceries,61.40,Checking
+2026-04-30,Rent Payment,Housing,1450.00,Checking
+2026-05-02,Shell Gas Station,Transportation,39.75,Checking
+2026-05-04,Sushi Place,Dining,52.30,Credit Card
+2026-05-06,Whole Foods,Groceries,72.88,Checking
+2026-05-09,Netflix,Subscriptions,15.49,Credit Card
+2026-05-11,Target,Shopping,94.20,Credit Card
+2026-05-14,Chipotle,Dining,15.10,Credit Card
+2026-05-16,Uber,Transportation,18.40,Credit Card
+2026-05-19,CVS Pharmacy,Health,22.75,Checking
+2026-05-21,Trader Joe's,Groceries,58.60,Checking
+2026-05-24,Spotify,Subscriptions,10.99,Credit Card
+2026-05-27,Olive Garden,Dining,61.05,Credit Card
+2026-05-30,Rent Payment,Housing,1450.00,Checking
+2026-06-01,Whole Foods,Groceries,80.33,Checking
+2026-06-03,Shell Gas Station,Transportation,45.20,Checking
+2026-06-06,Chipotle,Dining,14.55,Credit Card
+2026-06-08,Amazon,Shopping,123.40,Credit Card
+2026-06-10,Netflix,Subscriptions,15.49,Credit Card
+2026-06-13,Sushi Place,Dining,58.90,Credit Card
+2026-06-16,Uber,Transportation,25.10,Credit Card
+2026-06-18,CVS Pharmacy,Health,19.60,Checking
+2026-06-21,Trader Joe's,Groceries,66.75,Checking
+2026-06-24,Spotify,Subscriptions,10.99,Credit Card
+2026-06-27,Olive Garden,Dining,55.40,Credit Card
+2026-06-30,Rent Payment,Housing,1450.00,Checking
