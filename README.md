@@ -1,48 +1,75 @@
-# Transaction Insights Agent (MVP)
+# Transaction Insights Agent
 
-This repository contains the Transaction Insights Agent MVP: a Java Spring Boot backend (Maven), PostgreSQL infra, and a planned Expo frontend.
+A full-stack personal finance analytics app that lets users upload CSV transaction exports, review spending trends, and ask an AI agent questions about the loaded data.
 
-Quickstart
+## What it does
 
-1. Start infrastructure (Postgres + backend container placeholder):
+- Upload and normalize CSV bank/credit card exports
+- Store transactions in PostgreSQL
+- Aggregate spend by category over a date range
+- Show top spending categories and transaction totals
+- Answer finance questions with a grounded Anthropic-powered agent
+- Serve a browser dashboard for upload, analytics, and AI analysis
+
+## Tech stack
+
+- Java 17 + Spring Boot 3
+- Maven
+- PostgreSQL
+- Docker Compose
+- Anthropic API integration
+- Static HTML/CSS/JS dashboard served by the Spring app
+
+## Local setup
+
+1. Start the local stack:
 
 ```bash
-# from repo root
+cd /Users/annabellortiz/Desktop/Projects/Transaction-Insights-Project
 docker compose -f infra/docker-compose.yml up --build -d
 ```
 
-2. Build backend locally:
+2. Build and run the backend:
 
 ```bash
 cd backend
 mvn clean package
-# or ./mvnw clean package if you have the wrapper
+java -jar target/backend-0.0.1-SNAPSHOT.jar
 ```
 
-3. Run the backend locally:
+3. Open the app:
+
+```text
+http://localhost:8080
+```
+
+## Sample data
+
+A sample April 2026 dataset is included at the repo root:
+
+- `sample_transactions.csv`
+
+You can upload it through the dashboard or with:
 
 ```bash
-java -jar backend/target/backend-0.0.1-SNAPSHOT.jar
+curl -sS -X POST http://localhost:8080/api/upload -F "file=@sample_transactions.csv"
 ```
 
-4. Test upload endpoint (stub):
+## Environment variables
 
-```bash
-curl -v -F "file=@/path/to/sample.csv" http://localhost:8080/api/upload
-```
+For the Anthropic integration, set:
 
-Environment variables
+- `ANTHROPIC_API_KEY`
+- `ANTHROPIC_WORKSPACE_ID` or `ANTHROPIC_ORGANIZATION_ID`
 
-- `SPRING_DATASOURCE_URL` (defaults in `application.yml`) 
-- `SPRING_DATASOURCE_USERNAME`
-- `SPRING_DATASOURCE_PASSWORD`
-- `ANTHROPIC_API_KEY` (for LLM integration)
+The app also reads database defaults from the Spring configuration.
 
-Next tasks
+## Project summary
 
-- Implement robust CSV parsing, validation, and staged inserts (service exists but can be improved).
-- Implement typed tool DTOs and repository queries for `sumByCategory`, `largestTransaction`, and `trendByCategory`.
-- Wire Anthropic function-calling for tool invocation and add call logging/tracing.
-- Build the Expo frontend with CSV upload and chat UI.
+This project demonstrates a practical AI-enabled finance workflow: ingest real transaction exports, normalize inconsistent formats, compute summary metrics, and let an LLM explain the data using the loaded records instead of relying on generic fallback responses.
 
-See `backend/` for the Spring Boot Maven app and `infra/` for database init scripts.
+## Repository layout
+
+- `backend/` — Spring Boot application
+- `infra/` — Docker and database schema files
+- `sample_transactions.csv` — sample transaction export for demo/testing
