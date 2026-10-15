@@ -10,7 +10,6 @@
     <div class="page-shell">
       <header class="topbar">
         <div>
-          <p class="eyebrow">Portfolio project</p>
           <h1>Transaction Insights Agent</h1>
         </div>
         <div class="date-pill" id="dateRangeLabel">April 2026</div>
@@ -60,6 +59,15 @@
             <button class="chip" data-query="What was my total spend by category for April 2026?">Total spend by category</button>
             <button class="chip" data-query="What was my largest transaction in April 2026?">Largest transaction</button>
             <button class="chip" data-query="How did my spending trend in April 2026?">Spend trend</button>
+          </div>
+
+          <div class="upload-box">
+            <label for="csvFileInput">Upload transactions CSV</label>
+            <div class="upload-controls">
+              <input id="csvFileInput" type="file" accept=".csv,text/csv" />
+              <button id="uploadBtn" class="primary-btn">Upload</button>
+            </div>
+            <small id="uploadStatus">Use a CSV export with date, amount, and category columns.</small>
           </div>
 
           <div class="chat-box">

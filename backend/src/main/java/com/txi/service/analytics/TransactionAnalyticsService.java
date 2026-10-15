@@ -40,6 +40,10 @@ public class TransactionAnalyticsService {
                 .toList();
     }
 
+    public long getTransactionCount(LocalDate start, LocalDate end) {
+        return transactionRepository.findByTxnDateBetween(start, end).size();
+    }
+
     public TransactionSummaryDto getExtremeTransaction(LocalDate start, LocalDate end, boolean largest) {
         List<TransactionEntity> transactions = transactionRepository.findByTxnDateBetween(start, end).stream()
                 .filter(tx -> tx.getAmount() != null)

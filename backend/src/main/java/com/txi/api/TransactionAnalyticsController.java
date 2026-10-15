@@ -30,6 +30,13 @@ public class TransactionAnalyticsController {
         return transactionAnalyticsService.totalSpendByCategory(start, end);
     }
 
+    @GetMapping("/transaction-count")
+    public long transactionCount(
+            @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate start,
+            @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate end) {
+        return transactionAnalyticsService.getTransactionCount(start, end);
+    }
+
     @GetMapping("/largest-transaction")
     public TransactionSummaryDto largestTransaction(
             @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate start,

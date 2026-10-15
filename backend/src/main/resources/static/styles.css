@@ -26,6 +26,42 @@ button, input, textarea {
   font: inherit;
 }
 
+@media (max-width: 920px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+
+  .topbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 560px) {
+  .page-shell {
+    padding: 20px 14px 32px;
+  }
+
+  .panel {
+    padding: 18px;
+  }
+
+  .panel-header {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .range-picker,
+  .upload-controls,
+  .summary-row {
+    grid-template-columns: 1fr;
+  }
+
+  .summary-row {
+    display: grid;
+  }
+}
+
 .page-shell {
   max-width: 1280px;
   margin: 0 auto;
@@ -195,13 +231,44 @@ h1 {
   color: var(--primary-dark);
 }
 
+.upload-box {
+  display: grid;
+  gap: 10px;
+  margin-bottom: 18px;
+  padding: 16px;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: #f9fbff;
+}
+
+.upload-box label,
+.chat-box label {
+  font-weight: 600;
+}
+
+.upload-controls {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.upload-controls input[type="file"] {
+  flex: 1;
+  min-width: 180px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 10px 12px;
+  background: white;
+}
+
+.upload-box small {
+  color: var(--muted);
+}
+
 .chat-box {
   display: grid;
   gap: 12px;
-}
-
-.chat-box label {
-  font-weight: 600;
 }
 
 .chat-box textarea {

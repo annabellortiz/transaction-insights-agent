@@ -83,6 +83,77 @@ public class CsvIngestionServiceTest {
     }
 
     @Test
+    public void ingest_replacesExistingTransactionsBeforeInsertingNewFile() throws Exception {
+        String csv = "Trans. Date,Post Date,Description,Amount,Category\n" +
+                "02/01/2026,02/01/2026,INTERNET PAYMENT - THANK YOU,-482.39,Payments and Credits\n" +
+                "02/21/2026,02/21/2026,DD *DOORDASH MCDONALDS 6506819470 CA,33.17,Restaurants\n";
+
+        MockMultipartFile file = new MockMultipartFile("file", "discover.csv", "text/csv", csv.getBytes(StandardCharsets.UTF_8));
+        when(categoryRepo.findByName(anyString())).thenReturn(null);
+        when(categoryRepo.save(any(Category.class))).thenAnswer(invocation -> {
+            Category category = invocation.getArgument(0);
+            category.setId(System.nanoTime());
+            return category;
+        });
+        when(txRepo.save(any(TransactionEntity.class))).thenAnswer(invocation -> invocation.getArgument(0));
+
+        CsvIngestionResult result = ingestionService.ingest(file);
+
+        assertThat(result.getTotalRows()).isEqualTo(2);
+        assertThat(result.getInsertedRows()).isEqualTo(2);
+        assertThat(result.getErrors()).isEmpty();
+        verify(txRepo).deleteAll();
+        verify(txRepo, times(2)).save(any(TransactionEntity.class));
+    }
+
+    @Test
+    public void ingest_debitCreditCsv_supportsDebitAndCreditColumns() throws Exception {
+        String csv = "Status,Date,Description,Debit,Credit\n" +
+                "Cleared,09/07/2026,SCHNUCKS MID RIVERS ST. PETERS MO,4.19,\n" +
+                "Cleared,08/30/2026,Zenni Optical, ,130.11\n";
+
+        MockMultipartFile file = new MockMultipartFile("file", "bank.csv", "text/csv", csv.getBytes(StandardCharsets.UTF_8));
+        when(categoryRepo.findByName(anyString())).thenReturn(null);
+        when(categoryRepo.save(any(Category.class))).thenAnswer(invocation -> {
+            Category category = invocation.getArgument(0);
+            category.setId(System.nanoTime());
+            return category;
+        });
+        when(txRepo.save(any(TransactionEntity.class))).thenAnswer(invocation -> invocation.getArgument(0));
+
+        CsvIngestionResult result = ingestionService.ingest(file);
+
+        assertThat(result.getTotalRows()).isEqualTo(2);
+        assertThat(result.getInsertedRows()).isEqualTo(2);
+        assertThat(result.getErrors()).isEmpty();
+        assertThat(result.getErrors()).isEmpty();
+        verify(txRepo, times(2)).save(any(TransactionEntity.class));
+    }
+
+    @Test
+    public void ingest_csvWithoutCategory_assignsDefaultCategoryAndCountsSpend() throws Exception {
+        String csv = "Date,Description,Amount\n" +
+                "10/10/2026,LYFT,10.99\n" +
+                "09/12/2026,AMAZON,27.22\n";
+
+        MockMultipartFile file = new MockMultipartFile("file", "categoryless.csv", "text/csv", csv.getBytes(StandardCharsets.UTF_8));
+        when(categoryRepo.findByName(anyString())).thenReturn(null);
+        when(categoryRepo.save(any(Category.class))).thenAnswer(invocation -> {
+            Category category = invocation.getArgument(0);
+            category.setId(System.nanoTime());
+            return category;
+        });
+        when(txRepo.save(any(TransactionEntity.class))).thenAnswer(invocation -> invocation.getArgument(0));
+
+        CsvIngestionResult result = ingestionService.ingest(file);
+
+        assertThat(result.getInsertedRows()).isEqualTo(2);
+        assertThat(result.getErrors()).isEmpty();
+        verify(categoryRepo).findByName("Uncategorized");
+        verify(txRepo, times(2)).save(any(TransactionEntity.class));
+    }
+
+    @Test
     public void ingest_invalidRows_collectsErrors() throws Exception {
         String csv = "txn_date,amount,merchant\n" +
                 ",12.00,NoDate\n" +
